@@ -4,7 +4,6 @@ import java.time.LocalDate;
 
 public class ShopService {
 
-
     Product plant1 = new Product(
             "PL001",
             "Rose",
@@ -61,4 +60,8 @@ public class ShopService {
 
     }
 
+    public ShopService(ProductRepo productrepo, OrderListRepo orderlistrepo) {
+        this.productrepo = productrepo;
+        this.orderlistrepo = orderlistrepo;
+    }
 }

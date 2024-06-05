@@ -7,6 +7,9 @@ public class Main {
 
 
         OrderListRepo orderListRepo = new OrderListRepo();
+        ProductRepo productRepo = new ProductRepo();
+
+        ShopService shopService = new ShopService(productRepo,orderListRepo);
 
 
 
