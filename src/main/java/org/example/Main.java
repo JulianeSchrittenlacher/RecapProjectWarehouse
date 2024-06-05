@@ -37,6 +37,7 @@ public class Main {
 
         System.out.println(productRepo.getOne(plant1));
         System.out.println(productRepo.getAll());
+        System.out.println(productRepo.getAll());
 
 
 
