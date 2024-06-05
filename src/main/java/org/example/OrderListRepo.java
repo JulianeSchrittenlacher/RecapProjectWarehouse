@@ -3,19 +3,32 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrderListRepo {
+public class OrderListRepo implements OrderRepo {
     List<Order> orders = new ArrayList<>();
 
+
+    @Override
     public void add(Order order) {
         orders.add(order);
     }
+
+    @Override
     public void remove(Order order) {
         orders.remove(order);
     }
-    public Order getOne (Order order) {
-        return order;
+
+    @Override
+    public Order getOne (String id) {
+        for (Order order : orders) {
+            if (order.orderId().equals(id)) {
+                return order;
+            }
+        }
+        return null;
     }
-    public List getAll () {
+
+    @Override
+    public List<Order> getAll () {
         return orders;
     }
 }

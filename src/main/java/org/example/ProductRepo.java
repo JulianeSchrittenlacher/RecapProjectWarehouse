@@ -22,10 +22,14 @@ public void add(Product product) {
 public void remove(Product product) {
     allProducts.remove(product);
 }
-public Product getOne (Product product) {
+public Product getOne (String id) {
+
+    if (allProducts.contains()) {
         return product;
+    }
+        return Null;
 }
-public List getAll () {
+public List showAll () {
         return allProducts;
 }
 

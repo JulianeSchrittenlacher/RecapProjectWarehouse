@@ -3,6 +3,8 @@ package org.example;
 import java.time.LocalDate;
 
 public class ShopService {
+
+
     Product plant1 = new Product(
             "PL001",
             "Rose",
@@ -48,7 +50,7 @@ public class ShopService {
         OrderListRepo orderlistrepo = new OrderListRepo();
         orderlistrepo.add(order);
 
-        if (order.product().equals(productrepo.getOne(order.product()))) {
+        if (order.product().equals(productrepo.getOne(order.product().id()))) {
             return "Order Successfully Added";
         }
         return "Order Failed";
