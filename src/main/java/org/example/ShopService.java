@@ -37,18 +37,22 @@ public class ShopService {
 
     Order order1 = new Order("ORD001", "John Doe", plant1, LocalDate.now(), "Pending");
 
+    OrderListRepo orderlistrepo = new OrderListRepo();
     ProductRepo productrepo = new ProductRepo();
 
+    //Warum kann ich hier nicht auf die add-Methode zugreifen?
 
+    productrepo.add(plant1);
+    productrepo.add(plant2);
+    productrepo.add(plant3);
 
+    orderlistrepo.add(order);
 
     public String orderSomething(Order order) {
-        productrepo.add(plant1);
-        productrepo.add(plant2);
-        productrepo.add(plant3);
 
-        OrderListRepo orderlistrepo = new OrderListRepo();
-        orderlistrepo.add(order);
+//        OrderListRepo orderlistrepo = new OrderListRepo();
+//        ProductRepo productrepo = new ProductRepo();
+
 
         if (order.product().equals(productrepo.getOne(order.product().id()))) {
             return "Order Successfully Added";
@@ -56,4 +60,5 @@ public class ShopService {
         return "Order Failed";
 
     }
+
 }

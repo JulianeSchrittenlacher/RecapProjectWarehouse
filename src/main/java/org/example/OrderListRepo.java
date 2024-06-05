@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OrderListRepo implements OrderRepo {
-    List<Order> orders = new ArrayList<>();
 
+    List<Order> orders = new ArrayList<>();
 
     @Override
     public void add(Order order) {
