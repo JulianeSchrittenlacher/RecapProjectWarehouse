@@ -12,10 +12,10 @@ public class OrderListRepo {
     public void remove(Order order) {
         orders.remove(order);
     }
-    public String getOne (Order order) {
-        return orders.toString();
+    public Order getOne (Order order) {
+        return order;
     }
-    public String getAll () {
-        return orders.toString();
+    public List getAll () {
+        return orders;
     }
 }
