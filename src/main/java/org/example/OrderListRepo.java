@@ -13,7 +13,7 @@ public class OrderListRepo {
         orders.remove(order);
     }
     public String getOne (Order order) {
-        return order.toString();
+        return orders.toString();
     }
     public String getAll () {
         return orders.toString();

@@ -22,11 +22,11 @@ public void add(Product product) {
 public void remove(Product product) {
     allProducts.remove(product);
 }
-public String getOne (Product product) {
-        return product.toString();
+public Product getOne (Product product) {
+        return product;
 }
-public String getAll () {
-        return allProducts.toString();
+public List getAll () {
+        return allProducts;
 }
 
 

@@ -6,6 +6,7 @@ public record Product(
         String color,
         String description,
         double weight,
-        String supplierName
+        String supplierName,
+        int quantityOnStock
 ) {}
 
