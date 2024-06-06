@@ -4,64 +4,57 @@ import java.time.LocalDate;
 
 public class ShopService {
 
-    Product plant1 = new Product(
-            "PL001",
-            "Rose",
-            "Red",
-            "A beautiful red rose",
-            0.5,
-            "GreenGarden Supplies",
-            15
-    );
-
-    Product plant2 = new Product(
-            "PL002",
-            "Tulip",
-            "Yellow",
-            "A vibrant yellow tulip",
-            0.3,
-            "FlowerPower Co.",
-            0
-    );
-
-    Product plant3 = new Product(
-            "PL003",
-            "Orchid",
-            "Purple",
-            "An elegant purple orchid",
-            0.4,
-            "Orchid World",
-            3
-    );
-
-    Order order1 = new Order("ORD001", "John Doe", plant1, LocalDate.now(), "Pending");
-
-    OrderListRepo orderlistrepo = new OrderListRepo();
-    ProductRepo productrepo = new ProductRepo();
-
-    //Warum kann ich hier nicht auf die add-Methode zugreifen?
-
-    productrepo.add(plant1);
-    productrepo.add(plant2);
-    productrepo.add(plant3);
-
-    orderlistrepo.add(order);
-
-    public String orderSomething(Order order) {
-
-//        OrderListRepo orderlistrepo = new OrderListRepo();
-//        ProductRepo productrepo = new ProductRepo();
 
 
-        if (order.product().equals(productrepo.getOne(order.product().id()))) {
-            return "Order Successfully Added";
+    //Order order1 = new Order("ORD001", "John Doe", plant1, LocalDate.now(), "Pending");
+
+    OrderListRepo orderListRepo;
+    ProductRepo productRepo;
+
+    public ShopService(OrderListRepo orderListRepo, ProductRepo productRepo) {
+        this.orderListRepo = orderListRepo;
+        this.productRepo = productRepo;
+    }
+
+
+    public void orderSomething(String orderId, String costumerName,
+                               Product product, LocalDate dateOfOrder, String orderStatus) {
+
+        Order order = new Order(orderId, costumerName, product, dateOfOrder, orderStatus);
+        orderListRepo.add(order);
+
+
+        if (order.product().equals(productRepo.getOne(order.product().id()))) {
+            System.out.println("Order sucessfully created");
+        } else {
+            System.out.println("Order failed");
         }
-        return "Order Failed";
+
 
     }
 
-    public ShopService(ProductRepo productrepo, OrderListRepo orderlistrepo) {
-        this.productrepo = productrepo;
-        this.orderlistrepo = orderlistrepo;
-    }
+
+
+    //Warum kann ich hier nicht auf die add-Methode zugreifen? In der Main geht das!
+
+//    productRepo.add(plant1);
+//    productRepo.add(plant2);
+//    productRepo.add(plant3);
+//
+//    orderlistRepo.add(order);
+
+//    public String orderSomething(Order order) {
+//
+////        OrderListRepo orderlistrepo = new OrderListRepo();
+////        ProductRepo productrepo = new ProductRepo();
+//
+//
+//        if (order.product().equals(productrepo.getOne(order.product().id()))) {
+//            return "Order Successfully Added";
+//        }
+//        return "Order Failed";
+//
+//    }
+
+
 }

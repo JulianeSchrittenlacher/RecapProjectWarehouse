@@ -16,27 +16,25 @@ public class ProductRepo {
 
     List<Product> allProducts = new ArrayList<>();
 
-    public List<Product> getAllProducts() {
-        return allProducts;
-    }
+
 
     public void add(Product product) {
             allProducts.add(product);
-        }
-        public void remove(Product product) {
+    }
+    public void remove(Product product) {
             allProducts.remove(product);
-        }
-        public Product getOne (String id) {
-            for (Product product : allProducts) {
+    }
+    public Product getOne (String id) {
+        for (Product product : allProducts) {
                 if (product.id().equals(id)) {
                     return product;
                 }
-            }
+        }
             return null;
-        }
-        public List<Product> getAll () {
+    }
+    public List<Product> getAll () {
             return allProducts;
-        }
+    }
 
 }
 
